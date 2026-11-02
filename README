@@ -1,0 +1,55 @@
+/**
+This program was created as an assignment for Fundamental Data Structures, grade pending. 
+
+A4 Browser History Manager
+
+Assignment:
+	Implement a browser navigation system using your previously developed doubly linked list, iterator, and deque classes. 
+The program must manage visited pages, the current page, forward-history invalidation, range deletion, and a FIFO queue
+of pending visits
+
+Requirements: 
+  •	Reuse Data structures as application components.
+  •	Use bidirectional iterators for navigation, traversal, insertion, and removal
+  •	Preserve valid current-page state during mutations.
+  •	Use a deque to process pending navigation cases requests in FIFO order.
+  •	Test normal operations and edge cases and explain implementation decisions. 
+
+Implementation:
+	I created a class, FoogleHistory with the private members front, rear, and page as pointer variables. The pointer variables 
+front and rear act as place holders for the entire list of history with rear holding the place of the oldest page visited and 
+front holding the place of the newest page in the list. The variable page points to the URL that is currently being viewed. 
+For pending requests, I created a second deque struct, FutureList that is initialized as a private member of FoogleHistory, 
+pending. This includes FutureList in FoogleHistory using composition and allows FoogleHistory to manage both the future requests
+and the current history. 
+	In addition to the required functions, I also added bool historyEmpty() that returns true if front is equal to nullptr. During 
+the build and debugging process I used assert((front == nullptr) == (rear == nullptr)) inside historyEmpty() to identify and fix 
+cases that created a situation where front == nullptr but rear still pointed to a node. 
+	I also added a function void showAll() const; that will print all nodes from rear to front regardless of the URL that page is 
+currently pointing to. During debugging this was used to test cases where history was supposed to be deleted, specifically after 
+visit when there is a forward history. After visit() is called, all forward history is supposed to be deleted. Using showAll() 
+I was able to verify that page = front and front  next == nullptr.
+
+makefile:
+	A debug log was created with this program using #include <cassert>. 
+    •	make RELEASE=1 
+      o	Compile and execute foogle.exe without debug logs
+    •	make run: 
+      o	compiles and executes foogle.exe
+    •	make clean: 
+      •	deletes previous object files and foogle.exe  
+
+Required Tests:
+T1	Visit three pages --	Chronological order correct
+T2	Back twice --	Correct current page
+T3	Forward once --	Correct current page
+T4	Back from first --	No state change
+T5	Forward from last --	No state change
+T6	Visit after back --	Forward entries removed
+T7	Delete range excluding current --	Current preserved
+T8	Delete range containing current -- Replacement follows specified rule
+T9	Delete all history --	Empty state safe
+T10	Queue/process three URLs --	FIFO order
+T11	Process empty queue -- Safe false result
+T12	Operate after deleting all history --	Program remains functional
+**/

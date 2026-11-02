@@ -1,0 +1,11 @@
+ FoogleHistory hx;
+
+    hx.visit("www.one.com"); 
+    hx.visit("www.two.com");
+    hx.visit("www.three.com");
+    hx.showHistory(); 
+
+//T5
+    std::cout << std::endl << "T5: Forward from last" << std::endl; 
+    std::cout << "Forward from last: " << std::endl;
+    hx.forward();  

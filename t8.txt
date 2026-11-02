@@ -1,0 +1,21 @@
+FoogleHistory hx;
+
+    hx.visit("www.one.com");    
+    hx.visit("www.two.com");
+    hx.visit("www.three.com");
+    hx.visit("www.four.com");
+    hx.visit("www.five.com");
+    hx.visit("www.six.com");
+    hx.showHistory(); 
+
+    //T8
+    std::cout << "T8: Delete range including current page" << std::endl;
+    hx.back();
+    hx.back();
+    hx.back();
+    hx.showCurrentPage(); 
+    std::cout << "There are six pages in the history and the currentpage" 
+        << "is www.three.com (page 3)\n deleting pages 2-4" << std::endl; 
+    hx.deleteHistory(1, 3);
+    hx.showCurrentPage();
+    hx.showAll(); 

@@ -1,0 +1,9 @@
+FoogleHistory hx;
+
+    hx.visit("www.one.com"); 
+    hx.showHistory(); 
+
+    //T4
+    std::cout << std::endl << "T4: Back from first" << std::endl;
+    hx.back();
+    

@@ -1,0 +1,18 @@
+FoogleHistory hx;
+
+    hx.visit("www.one.com");    
+    hx.visit("www.two.com");
+    hx.visit("www.three.com");
+    hx.showHistory(); 
+
+    //T10
+    std::cout << "T10: Queue process three URLS" << std::endl;
+    hx.enqueueVisit("www.four.com");
+    hx.enqueueVisit("www.five.com");
+    hx.enqueueVisit("www.six.com");
+    hx.showPendingRequest();
+    hx.processNextRequest();
+    hx.processNextRequest();
+    hx.processNextRequest();
+    hx.showPendingRequest();
+    hx.showHistory(); 

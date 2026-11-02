@@ -1,0 +1,20 @@
+#include <iostream>
+#include "A3List.h"
+
+int main() {
+    FoogleHistory hx;
+
+    std::cout << std::endl << "T1:" << std::endl; 
+    hx.visit("www.one.com"); 
+    hx.visit("www.two.com");
+    hx.visit("www.three.com");
+    hx.showHistory(); 
+
+    //T6
+    std::cout << "T6: Visit after back: " << std::endl;
+    hx.back();
+    hx.showCurrentPage(); 
+    hx.visit("wwww.four.com");
+    hx.showAll();
+}
+

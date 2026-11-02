@@ -1,0 +1,13 @@
+ FoogleHistory hx;
+
+    hx.visit("www.one.com");    
+    hx.visit("www.two.com");
+    hx.visit("www.three.com");
+    hx.showHistory(); 
+
+    //T11
+    std::cout << "T11: Process empty queue" << std::endl;
+    hx.showPendingRequest();
+    hx.processNextRequest(); 
+    hx.visit("www.four.com");
+    hx.showHistory(); 

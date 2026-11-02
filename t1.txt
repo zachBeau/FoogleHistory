@@ -1,0 +1,10 @@
+FoogleHistory hx;
+
+    //T1
+    std::cout << std::endl << "T1:" << std::endl; 
+    hx.visit("www.one.com"); 
+    hx.showCurrentPage();
+    hx.visit("www.two.com");
+    hx.showCurrentPage(); 
+    hx.visit("www.three.com");
+    hx.showCurrentPage();  
